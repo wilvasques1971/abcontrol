@@ -30,7 +30,7 @@ $estoque = $dados["estoque"];
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Absorventes - Piso 3</title>
+    <title>Absorventes - Piso 4</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -38,11 +38,11 @@ $estoque = $dados["estoque"];
 
 <body>
 
-    <h1>Absorventes Gratuitos</h1>
+    <h1>ABcontrol Absorventes Gratuitos</h1>
 
     <div class="stock-card">
 
-        <h2>Banheiro Feminino - Piso 3</h2>
+        <h2>Banheiro Feminino - Piso 4</h2>
 
         <hr>
 
@@ -72,6 +72,96 @@ $estoque = $dados["estoque"];
         <?php } ?>
 
     </div>
+
+
+<?php
+include_once("conexao.php");
+
+$piso1 = mysqli_query($conn, "SELECT * FROM piso1 WHERE id = 1");
+$piso2 = mysqli_query($conn, "SELECT * FROM piso2 WHERE id = 1");
+$piso3 = mysqli_query($conn, "SELECT * FROM piso3 WHERE id = 1");
+$piso4 = mysqli_query($conn, "SELECT * FROM piso4 WHERE id = 1");
+
+$dados1 = mysqli_fetch_assoc($piso1);
+$dados2 = mysqli_fetch_assoc($piso2);
+$dados3 = mysqli_fetch_assoc($piso3);
+$dados4 = mysqli_fetch_assoc($piso4);
+
+?>
+
+<hr><br>
+
+    <h2>Estoque de Absorventes</h2>
+
+    <div class="pisos">
+
+        <div class="card">
+            <h3>Térreo</h3>
+
+            <p>
+                Temos no Estoque:
+                <br>
+                <strong>
+                    <?php echo $dados1["estoque"]; ?>
+                </strong><br>
+                Unidades
+            </p>
+
+            
+        </div>
+
+        <div class="card">
+            <h3>Primeiro Andar</h3>
+
+            <p>
+               Temos no Estoque:
+                <br>
+                <strong>
+                    <?php echo $dados2["estoque"]; ?>
+                </strong><br>
+                Unidades
+            </p>
+
+           
+        </div>
+
+        <div class="card">
+            <h3>Segundo Andar</h3>
+
+            <p>
+                Temos no Estoque:
+                <br>
+                <strong>
+                    <?php echo $dados3["estoque"]; ?>
+                </strong><br>
+                Unidades
+            </p>
+
+            
+        </div>
+
+        <div class="card">
+            <h3>Terceiro Andar</h3>
+
+            <p>
+                Temos no Estoque:
+                <br>
+                <strong>
+                    <?php echo $dados4["estoque"]; ?>
+                </strong><br>
+                Unidades
+            </p>
+
+            
+        </div>
+
+    </div>
+
+
+
+
+
+
 
 </body>
 
